@@ -1,9 +1,9 @@
 // If using my code provide credit, thank you
 // Initial setup and UI for the translation tool
-const deepLURL = "https://api-free.deepl.com";  // Example URL for DeepL API
-const googleTranslateURL = "https://translate.googleapis.com"; // Example URL for Google Translate API
+const deepLURL = "https://api-free.deepl.com";  
+const googleTranslateURL = "https://translate.googleapis.com"; 
 
-// Default API keys (these should be input securely in practice)
+// Default API keys 
 let apiKeyDeepL = "";
 let apiKeyGoogle = "";
 
@@ -134,10 +134,10 @@ function sendTranslationRequest() {
     $("#deepLResponse").html("");
     $("#googleResponse").html("");
 
-    // DeepL API request (replace with your API endpoint)
+    // DeepL API request
     $.ajax({
         type: "POST",
-        url: "https://api-free.deepl.com/v2/translate", // Correct DeepL API endpoint
+        url: "https://api-free.deepl.com/v2/translate", 
         contentType: "application/x-www-form-urlencoded",
         data: {
             auth_key: apiKeyDeepL,
@@ -152,10 +152,10 @@ function sendTranslationRequest() {
         }
     });
 
-    // Google Translate API request (corrected endpoint)
+    // Google Translate API request 
     $.ajax({
         type: "POST",
-        url: `https://translation.googleapis.com/language/translate/v2?q=${encodeURIComponent(text)}&target=${targetLang}&key=${apiKeyGoogle}`, // Correct Google Translate API endpoint
+        url: `https://translation.googleapis.com/language/translate/v2?q=${encodeURIComponent(text)}&target=${targetLang}&key=${apiKeyGoogle}`, 
         contentType: "application/json",
         data: JSON.stringify({
             q: text,
@@ -174,7 +174,7 @@ function sendTranslationRequest() {
 function submitFeedback() {
     const feedback = $("input[name='feedback']:checked").val();
     if (feedback) {
-        // Display the feedback in a notification banner instead of just an alert
+        // Display the feedback in a notification banner
         const notification = `
             <div id="feedbackNotification" style="position:fixed; top:20px; right:20px; background-color:#d4edda; color:#155724; padding:15px; border-radius:5px; border:1px solid #c3e6cb; z-index:1000;">
                 Thank you for your feedback! You preferred: <strong>${feedback}</strong>
